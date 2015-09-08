@@ -1,0 +1,315 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\begin{document}
+\title {Random Variable\\ Problem/Solution Based Approach}
+\author {Putu Wiramaswara Widya}
+	
+\maketitle
+
+\section{Possible values of X}
+
+\subsection{Exercise 1}
+\textit{An urn contains five red, three orange and two blue balls. Two balls are randomly selected. What is the sample space of this experiment? What are the possible values of X? Calculate P\{X=0\}}
+
+\subsubsection{Sample Space}
+
+At least you have very manual way to define the sample space for this as a two combination of balls taken from 5 red (R$_x$), 3 orange  (O$_x$) and 2 blue balls  (B$_x$) (total number of ball is 10). Here is the sample space set :
+
+S = \{(R$_1$, R$_2$), 
+(R$_1$, R$_2$),
+(R$_1$, R$_3$),
+(R$_1$, R$_4$),
+(R$_1$, R$_5$),
+(R$_1$, O$_1$),
+(R$_1$, O$_2$),
+(R$_1$, O$_3$),
+(R$_1$, B$_1$),
+(R$_1$, B$_2$),
+(R$_2$, R$_1$),
+....\}
+
+Mathematically speaking, by using counting method, there are 10x9 items inside the sample set. Therefore, n(S) is equal to 90.
+
+\subsubsection{Possible values X for orange balls}
+
+Because there are 3 orange balls exist, in this case the value of orange balls selected in combination of two balls collected is between \textbf{0 to 2} (neither orange balls selected to all of the collected ball are orange)
+
+\subsection{Exercise 2}
+
+\textit{Let X represent the difference between the number of heads and the number of tails obtained when a coin is tossed \textit{n} times. What are the possible values of X?}
+
+\subsubsection{Practically speaking}
+
+When you are tossing a coin five times, there are many possibilities for X values on it :
+
+\begin{tabular}{|c|c|c|}
+	\hline  n(H) & n(T)  & X  \\ 
+	\hline  5    & 0     & 5  \\ 
+	\hline  4    & 1     & 3  \\ 
+	\hline  3    & 2     & 1  \\ 
+	\hline  2    & 3     & -1  \\ 
+	\hline  1    & 4     & -3  \\ 
+	\hline  0    & 5     & -5  \\ 	
+	\hline 
+\end{tabular} 
+
+We can assume that for n times of tossing, possible values for X is -n, -n+2, -n+4, ..., n-2, n.
+
+\subsection{Exercise 3}
+
+\textit{In Exercise 2, if the coin is assumed fair, then for n = 2, what are the probabilities associated with the values that X can take on}.
+
+\subsection{Answer}
+
+Specifically for n = 2, there are four possible outcomes with values of X consisting of 2 (HH), 0 (HT, TH) and -2 (TT). The probability for X=2 is 1/4, X=0 is 1/2 and X=2 is 1/2.  
+
+\subsection{Exercise 4 and 5}
+
+Suppose a die is rolled twice. What are the possible values that the following random variables can take on?
+
+\begin{itemize}
+	\item The maximum value to appear in the two rolls. (X)
+	\item The minimum value to appear in the two rolls (Y)
+	\item The sum of two rolls (Z)
+	\item The value of first rolls minus the  value of second rolls. (W)
+\end{itemize}
+
+\subsubsection{The possible values}
+
+\begin{itemize}
+	\item X and Y = \{1,2,3,4,5,6\} (very obvious)
+	\item Z = \{2,3,4,5,6,7,8,9,10,11,12\}
+	\item W = \{-5, -4, -3, -2, -1, 0, 1, 2,3,4,5\}
+\end{itemize}
+
+\subsubsection{The possibility}
+
+\textit{If the die in Exercise 4 is assumed fair, calculate the probabilities associated the random variable in (i) - (iv).}
+
+This one is very obvious, you can create an 6x6 table like this and see the probability of either X,Y,Z,and W by youself.
+
+\subsection{Exercise 6}
+
+\textit{Suppose five fair coins are tossed. Let E be the event that all coins land heads. Define the random variable $I_E$}
+
+\[
+I_E = \begin{dcases*}
+1, & if $E$ occurs \\
+0, & if $E^c$ occurs 
+\end{dcases*}
+\]
+
+\textit{For what outcomes is the original sample space does $I_E$ equal 1? What is $P\{I_E = 1\}$}?
+
+\subsubsection{The Solution}
+
+From the sample space, you can determine that there is only one possible of outcome that all coin are showing Heads on the top after tossing $(H,H,H,H,H)$.
+
+Therefore, the probability that $P\{I_E = 1\} = 1/(2*5) = 1/10$. This one only applies in fair coin, which are not clearly mentioned in the question. So we just assume that the probability of head outcomes is $p$. The probability for $p$ probability outcome for head is $p^5$.
+
+
+\subsection{Exercise 7}
+
+\textit{Suppose a coin having probability 0.7 of coming up heads is tossed three times. Let X denote the number of heads that appears in the three tosses. Determine the probability mass function of X.}
+
+
+\subsubsection{Intuition of pmf}
+
+The probability mass function or abbreviately known as pmf is a function that gives the probability that a discrete random variable is exactly equal to some value. It is the primary means of defining a discrete probability distribution and such function exist for either scalar or multivariate random variables whose domain is discrete.
+
+The formal mathematical definition of pmf ($p(a)$) is bellow :
+$ p(a) = P{X = a} $
+
+The probability mass function is positive for at most a countable number of values of $a$. That is, if X must assume one of the values $x1,x2,...,$ then
+
+\begin{itemize}
+	\item $p(x_i) > 0$, i = 1,2,...
+	\item $p(x_i) = 0$, i = all other values of x
+\end{itemize}
+
+From that definition, we can say that the probability mass function should define that the values outside the range of X as 0 because there are no possibility if that occurs.
+
+
+
+\subsubsection{The answer}
+
+To acquire the pdf for this problem, we can grab all probability for all outcome and formally defined it up into a single function.
+
+Naively speaking, we can calculate the probability for every possible values of X (0,1,2,3) and calculate the probability by using $p$ and $1-p$ multiplication rule like this.
+
+$p(0) = 0.3^3 = 0.027$,
+$p(1) = 0.3^2 * 0.7 = 0.189$,
+$p(2) = 0.3^1 * 0.7^2 = 0.41$,
+$p(3) = 0.7^3 = 0.343$
+
+There will be a complicated issue if you want to try to make this as a simpler function. It is okay to let this way to become the ultimate answer.
+
+\subsection{Exercise 8}
+
+\textit{Suppose the distribution function of X is given by .. }
+
+\[
+F(b) = \begin{dcases*}
+0, & $b < 0$ \\
+1/2, & $0 \leq b < 1$ \\
+1, & $1 < b < \infty$ 
+\end{dcases*}
+\]
+
+\textit{What is the probability mass function of X?}
+
+\subsubsection{The Answer}
+
+F(b) or whatever it is with capital F is a cummulative distribution function, which means that it define the probability mass function when $p(X \leq b)$.
+
+We can determine that the possible values for a as the random variable is between 0 to 1 because it gives 0 possibility bellow it and give 1 when $b \leq 1$ (remember the probability definition). So that the pmf can be calculated as bellow.
+
+$p(0) = 1/2$,
+$p(1) = 1 - 1/2 = 1/2$
+
+The last one should be obvious. If it isn't, think that the F(b) is function of all probability \textbf{bellow} b, not exactly on b.
+
+
+
+
+\subsection{Exercise 9}
+
+\textit{If the distribution function of F is given by this ...}
+
+\[
+F(b) = \begin{dcases*}
+0, & $b < 0$ \\
+1/2, & $0 \leq b < 1$ \\ 
+3/5, & $1 \leq b < 2$ \\
+4/5, & $2 \leq b < 3$ \\
+9/10, & $3 \leq b < 3.5$ \\
+1, & $b \geq 3.5$ \\
+\end{dcases*}
+\]
+
+\textit{calculate the probability mass function of X}
+
+\subsubsection{The Answer}
+
+Same as exercise 8, the result is this.
+
+$p(0) = 1/2$,
+$p(1) = 3/5 - 1/2 = 1/10$,
+$p(2) = 4/5 - 3/5 = 1/5$,
+$p(3) = 9/10 - 4/5 = 1/10$,
+$p(3.5) = 1-9/10 = 1/10$
+
+\subsection{Exercise 10}
+\textit{Suppose three fair dice are rolled. What is the probability at most one six appears}.
+
+\subsubsection{Thinking in the other way}
+
+Let X a random variable for a number of six appears in a dice.
+
+The opposite of "at most one six appears" is either two and three six appears in the probability.
+
+For $P(X=2)$, the probability for one combination of two six and one other values is $(1/6)^2 * (5/6)$. There is [3 2] way to place two 2 sixes in within the three dice so :
+
+\[
+P(X=2) = \begin{array}{c}
+3 \\
+2
+\end{array} (1/6)^2 * (5/6)
+P(X=3) = \begin{array}{c}
+3 \\
+3
+\end{array} (1/6)^3
+\]
+
+Therefore, the probability of at most one six appears is :
+
+\[
+P(X\leq1) = 1 - P(X=2) - P(X=3)
+\]
+
+\subsection{Exercise 11}
+
+\textit{A ball is drawn from an urn containing three white and three black balls. After the ball is drawn, it is then replaced and another ball is drawn. This goes on indefinitely. What is the probability that of the first four ball drawn, exactly two are white.}
+
+\subsubsection{The answer}
+
+We can assume the sample space is only about combinations of four ball, the probability can be calculated by this counting method (using this way is more convenient than using multiplication way)
+
+\[
+P(X=2) = \begin{array}{c}
+4 \\
+2
+\end{array}
+ * (3/6)^2 * (3/6)^2 = 0.375
+\]
+
+
+\subsection{Exercise 12}
+
+\textit{On a multiple choice exam with three possible answers for each of the five questions, what is the probability that a student would get four or more correct answer just by guessing?}
+
+\subsubsection{The answer}
+
+Given X as number of correct answer the student will get. We need to calculate $P(X = 4) + P(X = 5)$ by hand like this :
+
+\[
+P(X = 4) = \begin{array}{c} 5 \\4 \end{array} (1/3)^4  (2/3)
+\]
+\[
+P(X = 5) =  \begin{array}{c} 5 \\5 \end{array} (1/3)^5
+\]
+\[
+P(X \geq 4) = P(X=4) + P(X=5)
+\]
+
+
+\section{Exercise 13}
+
+\textit{An individual claims to have extrasensory perception (ESP). As a test, a fair coin is flipped ten times, and he is asked to predict in advance the outcome. Our individual gets seven out of ten correct. What is the probability he would have done at least this well if he had no ESP? (Explain why the relevant probability is $P(X \leq 7)$ and not $P(X = 7)$.)}
+
+\subsubsection {The Answer}
+
+%skipped%
+
+\textit{Skipped}
+
+\section{Exercise 14}
+
+\textit{Suppose X has a binomial distribution with parameters 6 and 1/2. Show that $X=3$ is the most likely outcome.}
+
+\subsubsection{Binomial Distribution}
+
+The Binomial Distribution with parameters $n$ and $p$ is the discrete probability function of the number of successes in a sequence of $n$ independent yes/no experiment, each of which yields success with probability $p$ or $(1-p)$. 
+
+The probability mass function for binomial distribution is follows
+
+\[
+f(k; n, p) = Pr(X = k) = \begin{array}{c}n\\k\end{array}p^k(1-p)^{(n-k)}
+\]
+
+It is pretty much like how prvious exercise (10, 11, 12) is solved. We take the probability between $p$ and $1-p$ powered by respecting case and multiply it by how many number of combination does it take to create that case.
+
+\subsubsection {The answer}
+
+We can calculate it by hand like this ($n=6$, $p=1/2$) and with values $k$ from 0 to 6
+
+\[
+f(k; 6, 1/2) = \begin{array}{c}6\\k\end{array}(1/2)^k (1/2)^{(6-k)}
+\]
+\[ k=0 \to f(1;6,1/2) = \begin{array}{c}6\\1\end{array}(1/2)^6 = 1/64 \]
+\[ k=1 \to f(1;6,1/2) = \begin{array}{c}6\\1\end{array}(1/2)^6 = 6/64 \]
+\[ k=2 \to f(2;6,1/2) = \begin{array}{c}6\\2\end{array}(1/2)^6 = 15/64 \]
+\[ k=3 \to f(3;6,1/2) = \begin{array}{c}6\\3\end{array}(1/2)^6 = 20/64 \]
+\[ k=4 \to f(4;6,1/2) = \begin{array}{c}6\\3\end{array}(1/2)^6 = 15/64 \]
+
+Ini disebabkan karena fungsi kombinasi akan memiliki nilai tertinggi pada saat $k = \frac{1}{2}n$
+
+
+
+
+\end{document}
