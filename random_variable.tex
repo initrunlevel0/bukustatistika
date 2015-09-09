@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{mathtools}
+\usepackage{url}
 \begin{document}
 \title {Random Variable\\ Problem/Solution Based Approach}
 \author {Putu Wiramaswara Widya}
@@ -64,7 +65,7 @@ We can assume that for n times of tossing, possible values for X is -n, -n+2, -n
 
 \textit{In Exercise 2, if the coin is assumed fair, then for n = 2, what are the probabilities associated with the values that X can take on}.
 
-\subsection{Answer}
+\subsection{Solution}
 
 Specifically for n = 2, there are four possible outcomes with values of X consisting of 2 (HH), 0 (HT, TH) and -2 (TT). The probability for X=2 is 1/4, X=0 is 1/2 and X=2 is 1/2.  
 
@@ -93,6 +94,7 @@ Suppose a die is rolled twice. What are the possible values that the following r
 
 This one is very obvious, you can create an 6x6 table like this and see the probability of either X,Y,Z,and W by youself.
 
+\section{Calculating pmf}
 \subsection{Exercise 6}
 
 \textit{Suppose five fair coins are tossed. Let E be the event that all coins land heads. Define the random variable $I_E$}
@@ -136,7 +138,7 @@ From that definition, we can say that the probability mass function should defin
 
 
 
-\subsubsection{The answer}
+\subsubsection{Solution}
 
 To acquire the pdf for this problem, we can grab all probability for all outcome and formally defined it up into a single function.
 
@@ -163,7 +165,7 @@ F(b) = \begin{dcases*}
 
 \textit{What is the probability mass function of X?}
 
-\subsubsection{The Answer}
+\subsubsection{Solution}
 
 F(b) or whatever it is with capital F is a cummulative distribution function, which means that it define the probability mass function when $p(X \leq b)$.
 
@@ -194,7 +196,7 @@ F(b) = \begin{dcases*}
 
 \textit{calculate the probability mass function of X}
 
-\subsubsection{The Answer}
+\subsubsection{Solution}
 
 Same as exercise 8, the result is this.
 
@@ -204,6 +206,7 @@ $p(2) = 4/5 - 3/5 = 1/5$,
 $p(3) = 9/10 - 4/5 = 1/10$,
 $p(3.5) = 1-9/10 = 1/10$
 
+\section{Binomial random variable}
 \subsection{Exercise 10}
 \textit{Suppose three fair dice are rolled. What is the probability at most one six appears}.
 
@@ -236,7 +239,7 @@ P(X\leq1) = 1 - P(X=2) - P(X=3)
 
 \textit{A ball is drawn from an urn containing three white and three black balls. After the ball is drawn, it is then replaced and another ball is drawn. This goes on indefinitely. What is the probability that of the first four ball drawn, exactly two are white.}
 
-\subsubsection{The answer}
+\subsubsection{Solution}
 
 We can assume the sample space is only about combinations of four ball, the probability can be calculated by this counting method (using this way is more convenient than using multiplication way)
 
@@ -253,7 +256,7 @@ P(X=2) = \begin{array}{c}
 
 \textit{On a multiple choice exam with three possible answers for each of the five questions, what is the probability that a student would get four or more correct answer just by guessing?}
 
-\subsubsection{The answer}
+\subsubsection{Solution}
 
 Given X as number of correct answer the student will get. We need to calculate $P(X = 4) + P(X = 5)$ by hand like this :
 
@@ -272,13 +275,13 @@ P(X \geq 4) = P(X=4) + P(X=5)
 
 \textit{An individual claims to have extrasensory perception (ESP). As a test, a fair coin is flipped ten times, and he is asked to predict in advance the outcome. Our individual gets seven out of ten correct. What is the probability he would have done at least this well if he had no ESP? (Explain why the relevant probability is $P(X \leq 7)$ and not $P(X = 7)$.)}
 
-\subsubsection {The Answer}
+\subsubsection {Solution}
 
 %skipped%
 
 \textit{Skipped}
 
-\section{Exercise 14}
+\subsection{Exercise 14}
 
 \textit{Suppose X has a binomial distribution with parameters 6 and 1/2. Show that $X=3$ is the most likely outcome.}
 
@@ -292,9 +295,9 @@ The probability mass function for binomial distribution is follows
 f(k; n, p) = Pr(X = k) = \begin{array}{c}n\\k\end{array}p^k(1-p)^{(n-k)}
 \]
 
-It is pretty much like how prvious exercise (10, 11, 12) is solved. We take the probability between $p$ and $1-p$ powered by respecting case and multiply it by how many number of combination does it take to create that case.
+It is pretty much like how previous exercise (10, 11, 12) is solved. We take the probability between $p$ and $1-p$ powered by respecting case and multiply it by how many number of combination does it take to create that case.
 
-\subsubsection {The answer}
+\subsubsection {Solution}
 
 We can calculate it by hand like this ($n=6$, $p=1/2$) and with values $k$ from 0 to 6
 
@@ -315,15 +318,324 @@ The reason of particular higher value is due to the property of combination func
 
 \subsection{Exercise 16}
 
-\textit{An arline knows that 5 percent of the people making reservations on a certain flight will not show up. Consequently, their policy is to sell 52 tickets for a flight can hold only 50 passengers. What is the probability that there will be a seat available for every passenger who shows up.}
+\textit{An airline knows that 5 percent of the people making reservations on a certain flight will not show up. Consequently, their policy is to sell 52 tickets for a flight can hold only 50 passengers. What is the probability that there will be a seat available for every passenger who shows up.}
 
-\subsubsection{The answer}
+\subsubsection{Solution}
 
-Suppose $X$ is random variable for how many people will showing up in the plane. We can calculate $P(X<=52)$ which is when every single gets their seat as $1 - P(X>52)$
+Suppose $X$ is random variable for how many people will showing up in the plane. We can calculate $P(X<=50)$ which is when every single gets their seat as $1 - P(X=51) - P(X=52)$
+
+\[
+P(X=51) = \begin{array}{c}52\\51\end{array}0.95^{51}  0.05^1 = 0.19
+\]
+\[
+P(X=52) = \begin{array}{c}52\\52\end{array}0.95^{52} = 0.07
+\]
+\[
+P(X<=50) = 1 - 0.19 - 0.7 = 0.74
+\]
 
 % continued...%
 
+\section{Multinomial pmf}
 
+\subsection{Exercise 17}
+
+\textit{Suppose that an experiment can result in one of r possible outcomes, the $i$th outcome having probability $p_i, i = 1, ..., r, \sum\limits_{i=1}^r p_i = 1$. If $n$ of these experiments are performed, and if the outcome of any one of the n does not affect the outcome of the other $n-1$ experiments, then show that the probability that the first outcome appears $x_1$ times, the second $x_2$ times and the $r$th $x_r$ times is}
+
+\[
+\frac{n!}{x_1! x_2! ... x_r!} 
+p_1^{x_1} p_2^{x_2} ... p_r^{x_r}
+\]
+when $x_1 + x_2 + x_3 + ... + x_r = n$.
+
+\textit{This is known as the \textit{multinomial} distribution}
+
+\subsubsection{Multinomial distribution}
+
+Multinomial distribution is in fact a generalization of binomial distribution, whereas the multinomial permit the usage of more than two cases.
+
+The pmf form of multinomial distribution is based from binomial distribution like this :
+
+\[
+\frac{n!}{x_1! x_2! ... x_r!} 
+p_1^{x_1} p_2^{x_2} ... p_r^{x_r}
+\]
+
+The $\frac{n!}{x_1! x_2! ... x_r!}$  part of the formula is in fact an expansion of combination formula used within binomal. We uses permutation instead because the order of the outcome will be matter.
+
+
+\subsection{Exercise 18}
+
+\textit{Show that when $r=2$ the multinomial reduces to the binomial}
+
+\subsubsection{Solution}
+
+If you have done the previous exercise, you can see that multinomial pmf is based from binomial pmf.
+
+
+\subsection{Exercise 19}
+
+\textit{In Exercise 17, let $X_i$ denote the number of times the $i$th outcome appears, $i=1,\dots,r$. What is the probability mass function of $X_1 + X_2 + \dots + X_k$?}
+
+\subsubsection{Solution}
+
+From the solution manual, Solution looks like this :
+
+\[
+P\{X_1 + \dots + X_k\} = \begin{array}{c}n\\m\end{array} (p_1 + \dots + p_k)^{m} (p_{k+1} + \dots + p_{r})^{n-m}
+\]
+
+My perspective of that formula is that is is a binomial pmf which calculate all probability of $m$ cases when it chosen from $n$ number of total outcome.
+
+\subsection{Exercise 20}
+
+\textit{A television store owner figures that 50 percent of the customers entering his store will purchase an ordinary television set, 20 percent will purchase a color television set, and 30 percent will just be browsing. If five customers enter his store on a certain day, what is the probability that two customers purcase color sets, one customer purcase an ordinary set, and two customers purcase nothing?}
+
+\subsubsection{Solution}
+
+We can directly calculating the probability using multinomial's pmf formula.
+
+\[
+P(X_1=1;X_2=2;X_3=2) = \frac{5!}{1!2!2!} (\frac{5}{10})^{1} (\frac{2}{10})^{2} (\frac{3}{10})^{2} = 0.054.
+\]
+
+
+\subsection{Exercise 21}
+
+\textit{In Exercise 20, what is the probability that the store owner sells three or more televisions on that day?}
+
+\subsubsection{Solution}
+
+We can answer this by finding pmf for $X <= 2$ ($X$ is number of sold television) by using formula from Exercise 19.
+
+\[
+P(X=2) = \begin{array}{c}5\\2\end{array} (5/10 + 2/10)^{2} (3/10)^{3} = 0.1323
+\]
+\[
+P(X=1) = \begin{array}{c}5\\1\end{array} (5/10 + 2/10)^{1} (3/10)^{4} = 0.02835
+\]
+\[
+P(X=0) = \begin{array}{c}5\\0\end{array} (5/10 + 2/10)^{0} (3/10)^{5} =  0.00243
+\]
+
+\[
+P(X>=3) = 1 - 0.1323 - 0.02835 - 0.00243 = 0.00243
+\]
+
+\section{Negative Binomial}
+
+\subsection{Exercise 22}
+
+\textit{If a fair coin is successively flipped, find the probability that a head first appears on the fifth trial}
+
+\subsubsection{Solution}
+
+We can model this flipping coin problem using multinomial pmf by modeling it with multinomial distribution like this :
+
+\[
+P(X=5) = \frac{5!}{5!} * 0.5^4 * 0.5^1 = 1/32
+\]
+
+\subsection{Exercise 23}
+
+\textit{A coin having probability p of coming up heads is successively fliped until the $r$th head appears. Argue that $X$, the number of flips required will be $n, n \leq r$, with probability }
+
+\[
+P\{X=n\} = \begin{array}{c}n-1\\r-1\end{array}p^r(1-p)^{n-r}, n \leq r
+\]
+
+\textit{This is known as the negative binomial distribution}
+
+\subsubsection{Definition of Negative Binomial}
+
+\url{https://www.youtube.com/watch?v=BPlmjp2ymxw}
+
+We go back to definition of binominal distribution. In this kind of distribution, we want to know the value of $X$ random variable within fixed number ($n$) of independent Bernoulli trials. On the other hand, the negative binomial distribution is the distribution of random variable of number of trials needed to get a fixed number of success. We usually refer he number of success as variable $r$.
+
+\[
+P\{X=n\} = \begin{array}{c}n-1\\r-1\end{array}p^r(1-p)^{n-r}, n \leq r
+\]
+
+Within the formula above, we can calculate the random variable $n$ as the number of trial needed to get $r$ success.
+
+\subsection{Exercise 24}
+
+%skipped
+\textit{Skipped}
+
+
+\subsection{Exercise 25}
+
+\textit{In Exercise 25 and 26, suppose that two teams are playing a series of games, each of which is independently won by team A with prbabilty $p$ and by team B wth probability $1-p$. The winner of the series is the first team to win $i$ games.}
+
+\textit{If $i=4$, find the probability that a total of 7 games are played. Also show that this probability is maximied when $p=1/2$.}
+
+\subsection{Solution}
+
+By using negative binomial with $r=4$ and $n=7$, then the total probability for $p=1/2$ is :
+
+\[
+P\{X=7\} = \begin{array}{c}6\\3\end{array}(0.5^4) (0.5^{3}) = 0.15625
+\]
+
+You can prove if it is maximum in 0.5 by find the derivative and see that the gradient is zero (which indicating a local optima).
+
+\subsection{Exercise 26}
+
+\textit{From previous exercise, find the expected number of games that are played when $i=2$ and $i=3$ in both cases, show that this number is maximized when $p=1/2$}
+
+\subsubsection{Solution}
+
+%skipped%
+
+\subsection{Exercise 27}
+
+\textit{A fair coin is independently flipped $n$ times, $k$ times by $A$ and $n-k$ times by $B$. Show that the probability that $A$ and $B$ flip the same number of heads is equal to the probability that there a total of $k$ heads}
+
+\subsection{Solution}
+ 
+%skipped%
+
+\subsection{Exercise 28}
+
+\subsection{Exercise 29}
+
+\section{Poisson}
+
+\subsection{Exercise 30}
+
+\textit{Let X be a Poisson random variable with parameter $\lambda$. Show that $P\{X = i\}$ increases monotonically and then decreases monotonically as $i$ increase, reaching its maximum when $i$ is the largest integer not exceeding $\lambda$. Hint: Consider $\frac{P\{X = i\}}{P\{X = i-1\}}$}
+
+\subsubsection{Poisson Distribution}
+
+Suppose we are counting the number of occurrences of an event in a given unit of time, distance, area or volume (For example: The number of car accidents in a day, the number of dandelions in a square meter plot of land), the Poisson distribution determine the probability of a given number of events occurring in a fixed interval if these events occur with a known average rate and independently of the time since last event.
+
+The pmf of Poisson distribution is :
+
+\[
+P(X = x) = \frac{\lambda^{x} e^{-\lambda}}{x!}
+\]
+
+
+\subsubsection{Solution}
+
+For this exercise, we can look after the hint.
+
+\[
+\frac{P\{X = i\}}{P\{X = i-1\}} = \frac{\frac{\lambda^{i} e^{-\lambda}}{i!}}{\frac{\lambda^{i-1} e^{-\lambda}}{(i-1)!}} = \frac{lambda}{i}
+\]
+
+Hence, $P\{X=i\}$ is increasing for $\lambda \geq i$ and decreasing for $\lambda < i$.
+
+
+\subsection{Exercise 31}
+
+\textit{Compare the Poisson approximation with the correct binomial probability for the following case:}
+
+\begin{itemize}
+	\item \textit{$P\{X=2\}$ when $n=8, p=0.1$}
+	\item \textit{$P\{X=9\}$ when $n=10, p=0.95$}
+	\item \textit{$P\{X=0\}$ when $n=10, p=0.1$}
+	\item \textit{$P\{X=4\}$ when $n=9, p=0.2$}
+\end{itemize}
+
+\subsubsection{Poisson approximation}
+
+The idea of using Poisson distribution to approximate a binomial cases is by setting the lambda value as $\lambda = np$.
+
+\subsubsection{The solution}
+
+\begin{itemize}
+	\item $P\{X=2\} = e^{-0.8}(0.8)^{2}/2!$ 
+	\item $P\{X=9\} = e^{-9.5}(9.5)^{9}/9!$
+	\item $P\{X=0\} = e^{-1}(1)^{0}/0!$
+	\item $P\{X=4\} = e^{-1.8}(1.8)^{4}/4!$
+\end{itemize}
+
+\subsection{Exercise 32}
+
+\textit{If you buy a lottery ticket in 50 lotteries, in each of which your chance of winning a prize is $\frac{1}{100}$, what is the (approximate) probability that you will win a prize a) at least once, b) exactly once, c)at least twice}
+
+\subsubsection{Solution}
+
+Suppose $X$ is a random variable for winning number, we use $\lambda = 50 \frac{1}{100} = 0.5$ as the Poisson rate.
+
+We will pre-calculate $P\{X=0\}$, $P\{X=1\}$, $P\{X=2\}$
+
+\[
+P\{X=0\} = e^{-0.5}{0.5}^{0}/0! = 0.6065307
+\]
+\[
+P\{X=1\} = e^{-0.5}{0.5}^{1}/1! = 0.3032653
+\]
+
+For at least once $P\{X>=1\}$ we will calculate like this :
+
+\[
+P\{X>=1\} = 1 - P\{X=0\} = 1 - 0.6065307 = 0.6065307
+\]
+
+Exactly one $P\{X=1\}$ has already been calculated.
+
+For at least two $P\{X>=1\}$ we will calculate like this :
+\[
+P\{X>=1\} = 1 - P\{X=0\} - P\{X=1\} = 1 - 0.6065307 - 0.3032653 = 0.090204
+\]
+
+\subsection{Exercise 33}
+
+\textit{Let X be a random variable with probability density}
+
+\[ f(x) = 
+\begin{dcases}
+	c(1-x^{2}), & -1 < x < 1 \\
+	0, & otherwise
+\end{dcases}
+\]
+
+\begin{itemize}
+	\item \textit{What is the value of c?}
+	\item \textit{What is cumulative distribution function of X?}
+	
+\end{itemize}
+
+\subsubsection{Property of probability}
+
+Remember the golden rule of probability: it should added up to 1. For continuous case, the area (integration) of its function within the range of random variable ${r_1, r_2}$ should be equal to 1.
+
+\[
+\int_{r_1}^{r_2} f(x) dx = 1
+\]
+
+\subsubsection{Solution}
+
+To find $c$, first you need to find the integration function.
+
+\[
+\int_{-1}^{1} c(1-x^{2}) dx = c \Bigg[ x - \frac{x^3}{3} \Bigg]_1^1
+\]
+
+Because the area should be equal to 1, we can find the value of c. Hence we can define the cdf function with acquired value of c.
+
+
+\subsection{Exercise 34}
+
+%skipped
+
+\subsection{Exercise 35}
+
+%skiped
+
+\subsection{Exercise 36}
+
+\textit{A point is uniformly distributed within the disk of radius 1. That is, its density is}
+\[
+f(x,y) = C, 0 \leq x^2 + y^2 \leq 1
+\]
+
+\textit{Find the probability that its distance from the origin is less than $x, 0 \leg x \leg 1$}
+
+\subsubsection{Solution}
 
 
 \end{document}
