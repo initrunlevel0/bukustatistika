@@ -492,9 +492,12 @@ You can prove if it is maximum in 0.5 by find the derivative and see that the gr
 
 \textit{A fair coin is independently flipped $n$ times, $k$ times by $A$ and $n-k$ times by $B$. Show that the probability that $A$ and $B$ flip the same number of heads is equal to the probability that there a total of $k$ heads}
 
-\subsection{Solution}
- 
-%skipped%
+\subsubsection{Solution}
+
+\[
+%P\{same numbers of heads\} = \sum_i P\{A = i, B = i\} = \sum_i\begin{array}{c}k\\i\end{array} (1/2)^k \begin{array}{c}n-k\\i\end{array}(1/2)^{n-k} = \sum_i\begin{array}{c}k\\i\end{array}\begin{array}{c}n-k\\i\end{array}(1/2)^{n} = \begin{array}{c}n\\k\end{array}(1/2)^n.
+\]
+
 
 \subsection{Exercise 28}
 
@@ -582,6 +585,7 @@ For at least two $P\{X>=1\}$ we will calculate like this :
 P\{X>=1\} = 1 - P\{X=0\} - P\{X=1\} = 1 - 0.6065307 - 0.3032653 = 0.090204
 \]
 
+\section{Cumulative Distribution Function}
 \subsection{Exercise 33}
 
 \textit{Let X be a random variable with probability density}
@@ -637,5 +641,116 @@ f(x,y) = C, 0 \leq x^2 + y^2 \leq 1
 
 \subsubsection{Solution}
 
+From the solution manual, we got :
+
+\[
+    P\{D \leq x\} = \frac{\text{area of disk of radius x}}{\text{area of disk of radius 1}} = \frac{\phi{}x^2}{\phi} = x^2
+\]
+
+\subsection{Exercise 37}
+
+\textit{Let $X_1, X_2, \dots, X_n$ be independent random variables, each having a uniform distribution over (0,1).Let $M = maximum(X_1, X_2, \dots, X_n)$. Show that the distribution function of $M$, $F_M(.)$ is given by : }
+\[
+        F_m(x) = x^n, 0 \leq x \leq 1
+\]
+\textit{What is the probability density function of M?}
+
+\subsection{Exercise 38}
+
+\section{Expected Value}
+
+\subsection{Exercise 39}
+
+\textit{The random variable X has the following probability mass function:}
+
+\[
+    p(1) = \frac{1}{2}, p(2) = \frac{1}{3}, p(24) = {1/6}
+\]
+\textit{Calculate $E[X]$}
+
+\subsubsection{Expected Value}
+
+In general, expected value $E$ is the expected average outcome of probability that will occur within a probability mass function
+
+
+\subsubsection{Solution}
+
+We can calculate the $E[X]$ by using this formula : \[
+    E[X] = 1\frac{1}{2} + 2\frac{1}{3} + 24\frac{1}{6} = \frac{31}{6}
+\]
+
+
+
+\subsection{Exercise 40}
+
+\textit{Suppose that two teams are playing a series of games, each of which is independently won by team $A$ with probability $p$ and by team $B$ with probability $1-p$. The winner of the series is the first team to win four games. Find the expected number of games that are played, and evaluate this quantity when $p=1/2$}
+
+\subsubsection{Solution}
+Practically speaking, the game needs to be held at least seven times to draw the conclusion about the winner. Let $X$ denote the number of games played, we can find the probability of win from $X=4$ to $X=7$ like this (remember negative binomial) :
+
+\[
+    P\{X = 4\} = 0.5^4(0.5)^0 + 0.5^0(0.5)^4 = 0.125 , \text{4 games, either A win all or B win all}
+\]
+\[
+    P\{X = 5\} = \begin{array}{c}4\\3\end{array}0.5^4(0.5)^1 + \begin{array}{c}4\\3\end{array}0.5^1(0.5)^4 = 0.25  , \text{5 games, 4 times team X win and once lose}
+\]
+\[
+    P\{X = 6\} = \begin{array}{c}5\\3\end{array}0.5^4(0.5)^2 + \begin{array}{c}5\\3\end{array}0.5^2(0.5)^4 = 0.3125  , \text{5 games, 4 times team X win and once lose}
+
+    P\{X = 7\} = \begin{array}{c}6\\3\end{array}0.5^4(0.5)^3 + \begin{array}{c}6\\3\end{array}0.5^3(0.5)^4 = 0.3125  , \text{5 games, 4 times team X win and once lose}
+\]
+\[
+    E[X] = 4(0.125) + 5(0.25) + 6(0.3125)  + 7(0.3125)
+\]
+
+
+\subsection{Exercise 41}
+\textit{Consider the case of arbitrary $p$ in Exercise 29. Compute the expected number of changeovers.}
+
+\subsubsection{Solution}
+%skipped
+
+\section{Geometric Distribution}
+\subsection{Exercise 42}
+\textit{Supose that each coupon obtained is, independent of what has been previously obtained, equally likely to be any of $m$ different types. Find the expected number of coupons needs in order to have at least one of each type. \textbf{Hint}: Let $X$ be the number needed. It is useful to represent X by :}
+
+\[
+    X = \sum^m_{i=1} X_i
+\]
+\textit{where each $X_i$ is a geometric random variable}
+
+\subsubsection{Solution}
+%skipped
+
+\subsection{Exercise 43}
+\textit{An urn contains $n+m$ balls, of which $n$ are red and $m$ are black. They are withdrawn from the urn, one at a time and without replacement. Let $X$ be the number of red balls removed before the first black is choosen. We are interseted in determining $E[X]$. To obtain this quantity, number of red balls from $1 to n$. Now define the random variable $X_i, i=1, \dots, n,$ by : }
+
+\[X_i = 
+\begin{dcases}
+    1, & \text{if red ball $i$ is taken before any black ball is chosen} \\
+    0, & otherwise
+\end{dcases}
+
+\]
+
+\begin{itemize}
+    \item Express $X$ in terms of the $X_i$
+    \item Find $E[X]$
+\end{itemize}
+
+\subsubsection{Solution}
+
+We can express $X$ in terms of the $X_i$ as this (via Exercise 42' hint)
+\[
+    X = \sum_{i=1}^mX_i
+\]
+
+Furthermore, we need to find the probability function for $X$ which determine the number of red balls gathered before black ball withdrawn. Because all balls are equally likely to be withdrawn, the probability of one red ball is acquired among all ball is $\frac{1}{n+1}$ ($n$ is number of total red ball, we add 1 to account the last black ball). 
+
+Therefore, the $E[X]$ is follow :
+
+\[
+E[X] = \sum_{i=1}^n E[X_i] = n \frac{1}{n+1}
+\]
 
 \end{document}
