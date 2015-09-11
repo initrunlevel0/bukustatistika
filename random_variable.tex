@@ -710,7 +710,6 @@ Practically speaking, the game needs to be held at least seven times to draw the
 \subsubsection{Solution}
 %skipped
 
-\section{Geometric Distribution}
 \subsection{Exercise 42}
 \textit{Supose that each coupon obtained is, independent of what has been previously obtained, equally likely to be any of $m$ different types. Find the expected number of coupons needs in order to have at least one of each type. \textbf{Hint}: Let $X$ be the number needed. It is useful to represent X by :}
 
@@ -722,6 +721,7 @@ Practically speaking, the game needs to be held at least seven times to draw the
 \subsubsection{Solution}
 %skipped
 
+\section{Expected Value - Negative Binomial}
 \subsection{Exercise 43}
 \textit{An urn contains $n+m$ balls, of which $n$ are red and $m$ are black. They are withdrawn from the urn, one at a time and without replacement. Let $X$ be the number of red balls removed before the first black is choosen. We are interseted in determining $E[X]$. To obtain this quantity, number of red balls from $1 to n$. Now define the random variable $X_i, i=1, \dots, n,$ by : }
 
@@ -752,5 +752,40 @@ Therefore, the $E[X]$ is follow :
 \[
 E[X] = \sum_{i=1}^n E[X_i] = n \frac{1}{n+1}
 \]
+
+\subsection{Exercise 44}
+
+\textit{In Exercise 43, let $Y$ denote the number of red balls chosen after the first but before the second black ball has been chosen.}
+
+\begin{enumerate}
+    \item \textit{Express $Y$ as the sum of $n$ random variables, each of which is equal to either 0 or 1.}
+    \item \textit{Find $E[Y]$}
+    \item \textit{Compare $E[Y]$ to $E[X]$ obtained in Exercise 43.}
+    \item \textit{Can you explain the result obtained in part 3}
+\end{enumerate}
+
+\subsubsection{Solution}
+This is another negative binomial problem, which $k$ is number of trial needed to get red ball after first black ball
+\begin{enumerate}
+    \item We can summarize the Bernouli trial as usual: $Y = \sum_{i=1}^nY_i$
+    \item The expected value for this kind of distribution is $E[X] = k/p = n / n+1$
+    \item \textit{skipped}
+    \item \textit{skipped}
+\end{enumerate}
+\subsection{Exercise 45}
+
+\textit{A total of $r$ keys are to be put, one at a time, in $k$ boxes, with each key independently being put in box $i$ with probability $p_i, \sum_{i=1}^k p_i = 1$. Each time a key is put in a nonempty box, we say that a collision occurs. Find the expected number of collision.}
+
+
+\subsubsection{Solution}
+
+
+\subsection{Exercise 46}
+
+\subsection{Exercise 47}
+
+\textit{Consider three trials, each of which is either a success or not. Let X denote the number of success. Suppose that $E[X] = 1.8$. a) What is the largest possible value of $P\{X=3\}$? b) What is the smallest possible value of $P\{X=3\}$? In both cases, construct a probability scenario that result in $P\{X=3\}$ having the desired value.}
+
+
 
 \end{document}
