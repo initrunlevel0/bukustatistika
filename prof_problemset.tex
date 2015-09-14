@@ -1,0 +1,157 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{url}
+\begin{document}
+\title {Professor's Problemset\\ Problem/Solution Based Approach}
+\author {Putu Wiramaswara Widya}
+	
+\maketitle
+
+\section{Conditional Probability}
+
+Suppose  that if it is cloudy ($B$), the probability that it is taining ($A$) is $0.3$, and that the probability that it is cloudy is $P(B) = 0.2$. The probability that it is cloudy and raining is?
+
+\subsection{Solution}
+
+From the problem, we have know some probability: $P(A|B) = 0.3, P(A) = 0.2$. The problem asked about $P(A \cap B)$. From the rule of conditional probability, we can calculate it by : 
+
+\[
+    P(A \cap B) = P(A|B) P(B)
+\]
+\[
+    P(A \cap B) = 0.3 * 0.2 = 0.06
+\]
+\subsection{Similar Problem}
+
+\section{P-2}
+
+An urn contains three red balls and one blue ball. Two balls are selected without replacement. What is the probability that they are both red?. What is the probability that red ball is selected on the second draw?
+
+\subsection{Solution}
+
+There are four balls within the selection. We can define the number sample space as combination of two chosen balls from an urn of five balls : $n(S) = \begin{array}{c}4\\2\end{array} = 6$.
+
+For the event of they are both red, the event space that are qualified for this event are : $(\{R_1, R_2\}, \{R_2, R_3\},\{R_1, R_3\})$ with $n(S) = 3$ (you can calculate the number by calculating combination of $\begin{array}{c}3\\2\end{array}$). So the probability for this one is : $\frac{n(E)}{n(S)} = \frac{3}{6} = 0.5$.
+
+For the second event in which the red ball is selected on the second draw, there is $3x3=9$ combination of them. Because we are dealing with something that the placement is matter (i.e. a ball in $i$th position), we need to use permutation instead for both event and sample space counting. Hence the probability is $P(\text{red ball in 2nd draw}) = \frac{9}{P(4,2)} = \frac{9}{12} = 0.75$
+
+
+\subsection{Similar Problem}
+
+\section{Bayes Rule}
+
+%skipped
+
+\section{Derangement Problem}
+
+Suppose that each of three men at a party throws his hat into the center of the room. The hats are first mixed up and then each man randomly selects a hat. What is the probability that none of the three men select his own hat.
+
+\subsection{Solution}
+
+This is one of the well known classical probability problem called derangement problem. There are many approach to answer this solution, but we will discuss the solution using Inclusion-Exclusion Principle.
+
+Let N denote the total number of permutation of $n$ hats. To calculate the number of derangements, $D_n$, we want to exclude all permutations possessing any of the attributes $a_1, a_2, \dots, a_n$ where $a_i$ is the attribute that man $i$ get his correct hat for $1 \leq i \leq n$. Let $N(i)$ denote the number of permutation possessing attribute $a_i$.
+
+
+\section{Binomial Distribution}
+
+If a single bit (0 or 1) is transmitted over a communications channel, it has probability $p$ of being incorrectly transmitted. To improve the reliability of the transmission, the bit is transmitted $n$ times.
+
+($n$ is odd). A decoder at the receiving end, called majority decoder, decided that the correct message is that carried by majority of the received bits. Under a simple noise model, each bit is independently subject to being corrupted with the same probability $p$. The number of bits that is in error, $X$ is thus a binomial random variable with $n$ trials and probability $p$ of being success on trial. 
+
+Suppose, for example that $n=5, p=0.1$. Obtain the probability that the message is correctly received.
+
+As another case, suppose that the probabilities of being incorrectly transmitted are different. If the true value is 0(1), the error probability is $p(q)$. Then obtain the error probability in case of $n=5, p=0.1$
+
+
+
+\subsection{Solution}
+
+We can calculate the probability using binomial random variable. But to make this happen, we need to know how many $k$ is considered to be success. In the second paragraph, it is clear that "the correct message is carried by majority of receiving bits" so the $k = \{\lceil (n/2) \rceil - 1,\lceil (n/2) \rceil - 2, \dots, 0\}$. Therefore, the probability for $n=5, p=0.1$ is : (note that $p$ is the probability for failed bit)
+
+\[
+P\{X < 3\} = \begin{array}{c}5\\0\end{array} 0.1^0 0.9^5 + \begin{array}{c}5\\1\end{array} 0.1^1 0.9^4 + \begin{array}{c}5\\2\end{array} 0.1^2 0.9^3
+\]
+\subsection{Similar Problem}
+
+\section{Banach's Matchbox Problem}
+
+A mathematician carries one matchbox each in his right and left pockets. When he wants a match, he select the left pocket with probability $p$ and the right pocket with probability $1-p$. Suppose that initially each box contains $N$ matches. Consider the moment when the mathematician discovers that a box is empty. At the time the other box may contain $0,1,2,3,\dots,N$. Obtain the probability that the empty box is in his right pockets and the expected number of matches in left pocket.
+
+
+\subsection{Solution}
+
+The event of interest can happen in two ways :
+\begin{itemize}
+\item In the first $2n-k$ times, the mathematician reached $n$ times into the right pocket, $n-k$ times into the left pocket, and then, at time $2n-k+1$ into the right pocket. Thus the probability is getting the right pocket is : $\begin{array}{c}2n-k\\n\end{array}0.5^{2n-k}0.5^1$
+\item In the first $2n-k$ times, the mathematician reached $n$ times into the left pocket, $n-k$ times into the right pocket, and then, at time $2n-k+1$ into the left pocket. Thus the probability is getting the right pocket is : $\begin{array}{c}2n-k\\n\end{array}0.5^{2n-k}0.5^1$ (same as above)
+
+\end{itemize}
+
+\subsection{Exponential Random Distribution}
+
+Suppose that the amount of time one spends in a bank is exponentially distributed with mean ten minutes, that is $\lambda=0.1$. What is the probability that a customer will spend more than 15 minutes? What is the probability that customer will spend more 15 minutes in the bank given that she is still in the bank after ten minutes.
+
+\subsection{Solution}
+
+The first problem is $P(X \geq 0.15)$ and thus can be calculated with integration like this :
+
+\[
+    P(X \geq 0.15) = \int_{0.15}^\infty 0.1e^{-0.1x} dx
+\]
+The second one can be calculated using conditional probability like this :
+\[
+    P(X \geq 0.15 | X \geq 0.10) = \frac{\int_{0.15}^\infty 0.1e^{-0.1x} dx}{\int_{0.10}^\infty 0.1e^{-0.1x} dx}
+\]
+\section{Normal Random Distribution}
+
+If $X\sim N(\mu, \sigma^2)$ and $Y=aX+b$, then prove that $Y\sim N(\alpha\mu + b, \alpha^2\mu^2)$
+
+\subsection{Solution}
+
+Normal distribution PDF is defined as this :
+
+\[
+    X\sim N(\mu, \sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
+\]
+
+
+So if we have $Y=aX+B$, we can prove that the new $\mu_n = a\mu + b, \sigma_n^2 = a^2\sigma^2$ by using inverse relation :
+
+\[
+    g(x) = ax + b, g^{-1}(y) = \frac{y-b}{a}, (g^{-1})'(y) = \frac{1}{a}
+\]
+
+\[
+    f_Y(y) = f_X(g^{-1}(y) * (g^{-1})'(y)) = \frac{1}{a \sigma\sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-a\mu-b}{a\sigma})^2}
+
+\]
+
+\section{Cumulative distribution function}
+
+$F(X)$ is the cumulative distribution of a random variable, $X$ and let $Z=F(X)$ then $Z$ has a uniform distribution on $[0,1]$. Suppose that, as part of simulation study, we want to generate random variables from an exponential distribution. For example, the inter-arrival times of customers in a queue follows a exponential distribution. Explain how to generate random variables from exponential distribution
+
+
+\section{Joint density}
+
+Let $X$ and $Y$ have the join density
+\[
+    f(x,y) = \frac{6}{7} (x+y)^2, 0 < x < 1, 0 < y < 1
+\]
+
+\begin{enumerate}
+    \item Find $P(X>Y)$ and $P(X+Y<1)$
+    \item Find the marginal density of $X$.
+    \item Find the conditional density of $X$ given $Y$
+\end{enumerate}
+
+\subsection{Solution}
+\begin{enumerate}
+    \item You can use integration $\int_0^y\int_x^\infty (6/7) (x+y)^2 dx dy$ and $\int_0^y\int_x^\infty (6/7) (x+y)^2 dx dy$
+\end{enumerate}
+\end{document}
